@@ -1,189 +1,73 @@
 version: "3.8"
 services:
+
+  discovery-server:
+    container_name: discovery-server
+    build:
+      context: ./Discovery-server
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - mynetwork
+
+  api-gateway:
+    container_name: api-gateway
+    build:
+      context: ./Api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - discovery-server
+    links:
+      - discovery-server
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
+    networks:
+      - mynetwork
+
   total_zus:
     build:
       context: ./TotalZus
       dockerfile: Dockerfile
     ports:
-      - 8082:8082
+      - "8098:8098"
     depends_on:
-      - postgres
+      - postgres_total_zus
+    links:
+      - postgres_total_zus
+
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
+    networks:
+      - mynetwork
+
   tax:
+    container_name: tax
     build:
       context: ./Tax
       dockerfile: Dockerfile
     ports:
-      - 8090:8090
+      - "8090:8090"
     depends_on:
-      - postgres
+      - postgres_total_zus
+    links:
+      - postgres_total_zus
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
-
-  spring-admin:
-    build:
-      context: ./SpringAdmin-server
-      dockerfile: Dockerfile
-    ports:
-      - 8099:8099
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
-
-  sickness-zus:
-    build:
-      context: ./SicknessZus
-      dockerfile: Dockerfile
-    ports:
-      - 8083:8083
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
-
-  salary-calculator:
-    build:
-      context: ./SalaryCalculator-handler
-      dockerfile: Dockerfile
-    ports:
-      - 8086:8086
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
-
-  pension-zus:
-    build:
-      context: ./PensionZus
-      dockerfile: Dockerfile
-    ports:
-      - 8081:8081
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
-
-  monthly-net:
-    build:
-      context: ./MonthlyNet
-      dockerfile: Dockerfile
-    ports:
-      - 8092:8092
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
-
-  monthly-gross:
-    build:
-      context: ./MonthlyGross
-      dockerfile: Dockerfile
-    ports:
-      - 8094:8094
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
-
-  health:
-    build:
-      context: ./Health
-      dockerfile: Dockerfile
-    ports:
-      - 8088:8088
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
-      -
-  discovery-server:
-    build:
-      context: ./Discovery-server
-      dockerfile: Dockerfile
-    ports:
-      - 8761:8761
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
-
-  disability-zus:
-    build:
-      context: ./DisabilityZus
-      dockerfile: Dockerfile
-    ports:
-      - 8084:8084
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
-
-  api-gateway:
-    build:
-      context: ./Api-gateway
-      dockerfile: Dockerfile
-    ports:
-      - 8080:8080
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
-
-  annual-net:
-    build:
-      context: ./AnnualNet
-      dockerfile: Dockerfile
-    ports:
-      - 8093:8093
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
-
-  annual-gross:
-    build:
-      context: ./AnnualGross
-      dockerfile: Dockerfile
-    ports:
-      - 8091:8091
-    depends_on:
-      - postgres
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
-      - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=password
+    networks:
+      - mynetwork
 
   postgres_total_zus:
-    container_name: postgres_container_totalZus
+    container_name: postgres_total_zus
     image: postgres
     environment:
       POSTGRES_USER: postgres
@@ -194,7 +78,165 @@ services:
     volumes:
       - database-data:/var/lib/postgresql/data/
     networks:
-      - postgres
+      - mynetwork
+#  spring-admin:
+#    build:
+#      context: ./SpringAdmin-server
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8099:8099
+#    depends_on:
+#      - postgres
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=password
+#
+#  sickness-zus:
+#    build:
+#      context: ./SicknessZus
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8083:8083
+#    depends_on:
+#      - postgres
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=password
+#
+#  salary-calculator:
+#    build:
+#      context: ./SalaryCalculator-handler
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8086:8086
+#    depends_on:
+#      - postgres
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=password
+#
+#  pension-zus:
+#    build:
+#      context: ./PensionZus
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8081:8081
+#    depends_on:
+#      - postgres
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=password
+#
+#  monthly-net:
+#    build:
+#      context: ./MonthlyNet
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8092:8092
+#    depends_on:
+#      - postgres
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=password
+#
+#  monthly-gross:
+#    build:
+#      context: ./MonthlyGross
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8094:8094
+#    depends_on:
+#      - postgres
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=password
+#
+#  health:
+#    build:
+#      context: ./Health
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8088:8088
+#    depends_on:
+#      - postgres
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=password
+#
+#  discovery-server:
+#    build:
+#      context: ./Discovery-server
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8761:8761
+#    depends_on:
+#      - postgres_total_zus
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=password
+
+#  disability-zus:
+#    build:
+#      context: ./DisabilityZus
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8084:8084
+#    depends_on:
+#      - postgres
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=password
+#
+
+
+#
+#  annual-net:
+#    build:
+#      context: ./AnnualNet
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8093:8093
+#    depends_on:
+#      - postgres
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=password
+#
+#  annual-gross:
+#    build:
+#      context: ./AnnualGross
+#      dockerfile: Dockerfile
+#    ports:
+#      - 8091:8091
+#    depends_on:
+#      - postgres
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:postgresql://192.168.56.100:5432/
+#      - SPRING_DATASOURCE_USERNAME=postgres
+#      - SPRING_DATASOURCE_PASSWORD=password
+
+#  postgres_total_zus:
+#    container_name: postgres_total_zus
+#    image: postgres
+#    environment:
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: password
+#      restart: always
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - database-data:/var/lib/postgresql/data/
+#
 
 #  pgadmin:
 #    container_name: pgadmin_container
@@ -207,13 +249,13 @@ services:
 #    restart: always
 #    volumes:
 #      - pgadmin:/root/.pgadmin
-#    networks:
-#      - postgres
 #
-networks:
-  postgres:
-    driver: bridge
+
 #
 volumes:
   database-data:
 #  pgadmin:
+
+networks:
+  mynetwork:
+    driver: bridge
