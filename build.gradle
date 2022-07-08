@@ -10,7 +10,6 @@ configurations {
 	}
 }
 allprojects {
-
 	apply plugin: 'java'
 	apply plugin: 'io.spring.dependency-management'
 	apply plugin: 'org.springframework.boot'
@@ -26,7 +25,6 @@ allprojects {
 
 	ext {
 		set('springCloudVersion', "2021.0.3")
-		set('projSpringBootVersion', "2.7.1")
 	}
 
 	dependencies {
@@ -44,7 +42,12 @@ allprojects {
 		testImplementation 'io.projectreactor:reactor-test'
 	}
 
+	dependencyManagement {
+		imports {
+			mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 
+		}
+	}
 }
 
 tasks.named('test') {
