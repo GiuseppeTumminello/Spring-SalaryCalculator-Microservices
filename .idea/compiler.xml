@@ -20,17 +20,17 @@
         <module name="Spring-SalaryCalculator-Microservices.PensionZus.main" />
         <module name="Spring-SalaryCalculator-Microservices.Discovery-server.main" />
         <module name="Spring-SalaryCalculator-Microservices.main" />
-        <module name="Spring-SalaryCalculator-Microservices.SalaryCalculator-handler.main" />
         <module name="Spring-SalaryCalculator-Microservices.Tax.main" />
         <module name="Spring-SalaryCalculator-Microservices.SpringAdmin-server.main" />
         <module name="Spring-SalaryCalculator-Microservices.TotalZus.main" />
+        <module name="com.acoustic.Spring-SalaryCalculator-Microservices.SalaryCalculator-orchestrator.main" />
       </profile>
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="Spring-SalaryCalculator-Microservices.SalaryCalculator-handler.test" />
+        <module name="com.acoustic.Spring-SalaryCalculator-Microservices.SalaryCalculator-orchestrator.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />

@@ -11,7 +11,7 @@
     <mapping directory="$PROJECT_DIR$/MonthlyGross" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MonthlyNet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/PensionZus" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/SalaryCalculator-handler" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/SalaryCalculator-orchestrator" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/SicknessZus" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/SpringAdmin-server" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Tax" vcs="Git" />

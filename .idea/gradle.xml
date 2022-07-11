@@ -19,7 +19,7 @@
             <option value="$PROJECT_DIR$/MonthlyGross" />
             <option value="$PROJECT_DIR$/MonthlyNet" />
             <option value="$PROJECT_DIR$/PensionZus" />
-            <option value="$PROJECT_DIR$/SalaryCalculator-handler" />
+            <option value="$PROJECT_DIR$/SalaryCalculator-orchestrator" />
             <option value="$PROJECT_DIR$/SicknessZus" />
             <option value="$PROJECT_DIR$/SpringAdmin-server" />
             <option value="$PROJECT_DIR$/Tax" />

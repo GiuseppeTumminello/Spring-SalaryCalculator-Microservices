@@ -95,6 +95,7 @@ gradle-app.setting
 # This ignore entry is preventing those changes (that probably are secrets) from being commited by accident
 application-savvis.yml
 /out/
+.idea
 
 
 # Terraform

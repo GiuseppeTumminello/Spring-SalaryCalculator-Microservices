@@ -20,7 +20,7 @@ include 'AnnualGross'
 include 'MonthlyNet'
 include 'AnnualNet'
 include 'MonthlyGross'
-include 'SalaryCalculator-handler'
+include 'SalaryCalculator-orchestrator'
 include 'SpringAdmin-server'
 
 
