@@ -23,9 +23,6 @@ services:
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
 
-
-
-
   total_zus:
     build:
       context: ./TotalZus
