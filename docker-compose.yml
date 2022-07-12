@@ -32,13 +32,13 @@ services:
     ports:
       - "8098:8098"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
@@ -50,13 +50,13 @@ services:
     ports:
       - "8090:8090"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
@@ -69,7 +69,7 @@ services:
     ports:
       - "8099:8099"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
@@ -81,13 +81,13 @@ services:
     ports:
       - "8083:8083"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
@@ -99,13 +99,13 @@ services:
     ports:
       - "8086:8086"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
@@ -117,13 +117,13 @@ services:
     ports:
       - "8081:8081"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
@@ -135,13 +135,13 @@ services:
     ports:
       - "8092:8092"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
@@ -153,13 +153,13 @@ services:
     ports:
       - "8094:8094"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
@@ -171,13 +171,13 @@ services:
     ports:
       - "8088:8088"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
@@ -191,13 +191,13 @@ services:
     ports:
       - "8084:8084"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
@@ -212,13 +212,13 @@ services:
     ports:
       - "8093:8093"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
@@ -229,13 +229,13 @@ services:
     ports:
       - "8091:8091"
     depends_on:
-      postgres_total_zus:
+      postgres:
         condition: service_started
       discovery-server:
         condition: service_started
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres_total_zus:5432/
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=password
 
@@ -254,8 +254,8 @@ services:
       - pgadmin:/root/.pgadmin
 
 
-  postgres_total_zus:
-    container_name: postgres_total_zus
+  postgres:
+    container_name: postgres
     image: postgres
     environment:
       POSTGRES_USER: postgres
