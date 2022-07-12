@@ -51,7 +51,7 @@ The response will look like as following:
 The actuator will be accessible via the following links:
 
 * http://localhost:8080/tax/actuator
-* http://localhost:8098/tax/actuator
+* http://localhost:8090/tax/actuator
 
 
 The first endpoint is accessible via Spring api Gateway and the second one through the server port.
@@ -59,7 +59,7 @@ The first endpoint is accessible via Spring api Gateway and the second one throu
 Swagger it is available via the following endpoints:
 
 * http://localhost:8080/swagger-ui/?urls.primaryName=tax
-* http://localhost:8098/tax/v3/api-docs
+* http://localhost:8090/tax/v3/api-docs
 
 The first endpoints is accessible via Spring api Gateway and the second ones through the server port.
 
@@ -85,7 +85,7 @@ The microservice calculates the sickness zus amount from the monthly gross salar
 The endpoints are available in the following endpoints using the HTTP POST method:
 
 * http://localhost:8080/sickness-zus/calculation/8000
-* http://localhost:8098/sickness-zus/calculation/8000
+* http://localhost:8083/sickness-zus/calculation/8000
 
 The response will look like as following:
 
@@ -97,7 +97,7 @@ The response will look like as following:
 The actuator will be accessible via the following links:
 
 * http://localhost:8080/sickness-zus/actuator
-* http://localhost:8098/sickness-zus/actuator
+* http://localhost:8083/sickness-zus/actuator
 
 
 The first endpoint is accessible via Spring api Gateway and the second one through the server port.
@@ -105,7 +105,7 @@ The first endpoint is accessible via Spring api Gateway and the second one throu
 Swagger it is available via the following endpoints:
 
 * http://localhost:8080/swagger-ui/?urls.primaryName=sickness-zus
-* http://localhost:8098/sickness-zus/v3/api-docs
+* http://localhost:8083/sickness-zus/v3/api-docs
 
 The first endpoints is accessible via Spring api Gateway and the second ones through the server port.
 
@@ -115,7 +115,7 @@ The microservice calculates the Pension Zus amount from the monthly gross salary
 The endpoints are available in the following endpoints using the HTTP POST method:
 
 * http://localhost:8080/pension-zus/calculation/8000
-* http://localhost:8098/pension-zus/calculation/8000
+* http://localhost:8081/pension-zus/calculation/8000
 
 The response will look like as following:
 
@@ -127,7 +127,7 @@ The response will look like as following:
 The actuator will be accessible via the following links:
 
 * http://localhost:8080/pension-zus/actuator
-* http://localhost:8098/pension-zus/actuator
+* http://localhost:8081/pension-zus/actuator
 
 
 The first endpoint is accessible via Spring api Gateway and the second one through the server port.
@@ -135,7 +135,7 @@ The first endpoint is accessible via Spring api Gateway and the second one throu
 Swagger it is available via the following endpoints:
 
 * http://localhost:8080/swagger-ui/?urls.primaryName=pension-zus
-* http://localhost:8098/pension-zus/v3/api-docs
+* http://localhost:8081/pension-zus/v3/api-docs
 
 The first endpoints is accessible via Spring api Gateway and the second ones through the server port.
 
@@ -145,7 +145,7 @@ The microservice calculates the Monthly Net amount from the monthly gross salary
 The endpoints are available in the following endpoints using the HTTP POST method:
 
 * http://localhost:8080/monthly-net/calculation/8000
-* http://localhost:8098/monthly-net/calculation/8000
+* http://localhost:8092/monthly-net/calculation/8000
 
 The response will look like as following:
 
@@ -157,7 +157,7 @@ The response will look like as following:
 The actuator will be accessible via the following links:
 
 * http://localhost:8080/monthly-net/actuator
-* http://localhost:8098/monthly-net/actuator
+* http://localhost:8092/monthly-net/actuator
 
 
 The first endpoint is accessible via Spring api Gateway and the second one through the server port.
@@ -165,7 +165,7 @@ The first endpoint is accessible via Spring api Gateway and the second one throu
 Swagger it is available via the following endpoints:
 
 * http://localhost:8080/swagger-ui/?urls.primaryName=monthly-net
-* http://localhost:8098/monthly-net/v3/api-docs
+* http://localhost:8092/monthly-net/v3/api-docs
 
 The first endpoints is accessible via Spring api Gateway and the second ones through the server port.
 
@@ -175,7 +175,7 @@ The microservice calculates the Monthly Gross amount from the monthly gross sala
 The endpoints are available in the following endpoints using the HTTP POST method:
 
 * http://localhost:8080/monthly-gross/calculation/8000
-* http://localhost:8098/monthly-gross/calculation/8000
+* http://localhost:8094/monthly-gross/calculation/8000
 
 The response will look like as following:
 
@@ -187,7 +187,7 @@ The response will look like as following:
 The actuator will be accessible via the following links:
 
 * http://localhost:8080/monthly-gross/actuator
-* http://localhost:8098/monthly-gross/actuator
+* http://localhost:8094/monthly-gross/actuator
 
 
 The first endpoint is accessible via Spring api Gateway and the second one through the server port.
@@ -195,7 +195,7 @@ The first endpoint is accessible via Spring api Gateway and the second one throu
 Swagger it is available via the following endpoints:
 
 * http://localhost:8080/swagger-ui/?urls.primaryName=monthly-gross
-* http://localhost:8098/monthly-gross/v3/api-docs
+* http://localhost:8094/monthly-gross/v3/api-docs
 
 The first endpoints is accessible via Spring api Gateway and the second ones through the server port.
 
@@ -205,7 +205,7 @@ The microservice calculates the Health amount from the monthly gross salary.
 The endpoints are available in the following endpoints using the HTTP POST method:
 
 * http://localhost:8080/health/calculation/8000
-* http://localhost:8098/health/calculation/8000
+* http://localhost:8088/health/calculation/8000
 
 The response will look like as following:
 
@@ -217,7 +217,7 @@ The response will look like as following:
 The actuator will be accessible via the following links:
 
 * http://localhost:8080/health/actuator
-* http://localhost:8098/health/actuator
+* http://localhost:8088/health/actuator
 
 
 The first endpoint is accessible via Spring api Gateway and the second one through the server port.
@@ -225,14 +225,14 @@ The first endpoint is accessible via Spring api Gateway and the second one throu
 Swagger it is available via the following endpoints:
 
 * http://localhost:8080/swagger-ui/?urls.primaryName=health
-* http://localhost:8098/health/v3/api-docs
+* http://localhost:8088/health/v3/api-docs
 
 The first endpoints is accessible via Spring api Gateway and the second ones through the server port.
 
 ### Discovery Server
 
 The Discovery server  allows clients applications to find services through a router or a load balancer,
-It provides also a dashboard where there are displayed all the services registered and it is accessible from the following link:
+It provides also a dashboard where there are displayed all the services registered, and it is accessible from the following link:
 
 * http://localhost:8080/eureka/microservices
 
@@ -244,7 +244,7 @@ The microservice calculates the Disability Zus amount from the monthly gross sal
 The endpoints are available in the following endpoints using the HTTP POST method:
 
 * http://localhost:8080/disability-zus/calculation/8000
-* http://localhost:8098/disability-zus/calculation/8000
+* http://localhost:8084/disability-zus/calculation/8000
 
 The response will look like as following:
 
@@ -256,7 +256,7 @@ The response will look like as following:
 The actuator will be accessible via the following links:
 
 * http://localhost:8080/disability-zus/actuator
-* http://localhost:8098/disability-zus/actuator
+* http://localhost:8084/disability-zus/actuator
 
 
 The first endpoint is accessible via Spring api Gateway and the second one through the server port.
@@ -264,7 +264,7 @@ The first endpoint is accessible via Spring api Gateway and the second one throu
 Swagger it is available via the following endpoints:
 
 * http://localhost:8080/swagger-ui/?urls.primaryName=disability-zus
-* http://localhost:8098/disability-zus/v3/api-docs
+* http://localhost:8084/disability-zus/v3/api-docs
 
 The first endpoints is accessible via Spring api Gateway and the second ones through the server port.
 
@@ -286,7 +286,7 @@ The microservice calculates the Annual net amount from the monthly gross salary.
 The endpoints are available in the following endpoints using the HTTP POST method:
 
 * http://localhost:8080/annual-net/calculation/8000
-* http://localhost:8098/annual-net/calculation/8000
+* http://localhost:8093/annual-net/calculation/8000
 
 The response will look like as following:
 
@@ -298,7 +298,7 @@ The response will look like as following:
 The actuator will be accessible via the following links:
 
 * http://localhost:8080/annual-net/actuator
-* http://localhost:8098/annual-net/actuator
+* http://localhost:8093/annual-net/actuator
 
 
 The first endpoint is accessible via Spring api Gateway and the second one through the server port.
@@ -306,7 +306,7 @@ The first endpoint is accessible via Spring api Gateway and the second one throu
 Swagger it is available via the following endpoints:
 
 * http://localhost:8080/swagger-ui/?urls.primaryName=annual-net
-* http://localhost:8098/annual-net/v3/api-docs
+* http://localhost:8093/annual-net/v3/api-docs
 
 The first endpoints is accessible via Spring api Gateway and the second ones through the server port.
 
@@ -316,7 +316,7 @@ The microservice calculates the Annual gross amount from the monthly gross salar
 The endpoints are available in the following endpoints using the HTTP POST method:
 
 * http://localhost:8080/annual-gross/calculation/8000
-* http://localhost:8098/annual-gross/calculation/8000
+* http://localhost:8091/annual-gross/calculation/8000
 
 The response will look like as following:
 
@@ -328,7 +328,7 @@ The response will look like as following:
 The actuator will be accessible via the following links:
 
 * http://localhost:8080/annual-gross/actuator
-* http://localhost:8098/annual-gross/actuator
+* http://localhost:8091/annual-gross/actuator
 
 
 The first endpoint is accessible via Spring api Gateway and the second one through the server port.
@@ -336,7 +336,7 @@ The first endpoint is accessible via Spring api Gateway and the second one throu
 Swagger it is available via the following endpoints:
 
 * http://localhost:8080/swagger-ui/?urls.primaryName=annual-gross
-* http://localhost:8098/annual-gross/v3/api-docs
+* http://localhost:8091/annual-gross/v3/api-docs
 
 The first endpoints is accessible via Spring api Gateway and the second ones through the server port.
 
@@ -344,7 +344,7 @@ The first endpoints is accessible via Spring api Gateway and the second ones thr
 
 The rest API has been created to calculate the net amount in PLN and display all the taxation applied to the gross amount.
 
-The application can perform 2 GET and 1 POST HTTP methods. The GET methods show the department name and the job titles list available and they are accessible from the following links:
+The application can perform 2 GET and 1 POST HTTP methods. The GET methods show the department name and the job titles list available, and they are accessible from the following links:
 
 * http://localhost:8080/salary-calculations/departments
 * http://localhost:8080/salary-calculations/jobs/{departmentName}
@@ -457,7 +457,7 @@ The application provide also an actuator which is accessible via the following e
 Swagger it is available via the following endpoints:
 
 * http://localhost:8080/swagger-ui/?urls.primaryName=salary-calculator
-* http://localhost:8096/pension-zus/v3/api-docs
+* http://localhost:8096/salary-calculations/v3/api-docs
 
 # Setup Salary Calculator Microservices Project
 
@@ -472,8 +472,23 @@ Swagger it is available via the following endpoints:
     * Create a jar file for each microservice by running "gradle build" or "gradle bootJar"
     * execute: docker-compose -f docker-compose.yml up
 
+# Related Git Repositories
 
-
+* https://github.com/GiuseppeTumminello/Microservice-AnnualGross.git
+* https://github.com/GiuseppeTumminello/Microservice-AnnualNet.git
+* https://github.com/GiuseppeTumminello/Microservice-api-gateway.git
+* https://github.com/GiuseppeTumminello/Microservice-disability-zus.git
+* https://github.com/GiuseppeTumminello/Microservice-discovery-server.git
+* https://github.com/GiuseppeTumminello/Microservice-health.git
+* https://github.com/GiuseppeTumminello/Microservice-monthlyGross.git
+* https://github.com/GiuseppeTumminello/Microservices-MonthlyNet
+* https://github.com/GiuseppeTumminello/Microservice-pension-zus.git
+* https://github.com/GiuseppeTumminello/Microservices-sickness-zus.git
+* https://github.com/GiuseppeTumminello/Microservice-SpringAdmin.git
+* https://github.com/GiuseppeTumminello/Microservice-tax
+* https://github.com/GiuseppeTumminello/Microservice-total-zus.git
+* https://github.com/GiuseppeTumminello/Microservice-total-zus.git
+* https://github.com/GiuseppeTumminello/Microservice-SalaryCalculator.git
 
 
 
