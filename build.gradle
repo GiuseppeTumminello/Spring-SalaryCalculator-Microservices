@@ -52,6 +52,14 @@ allprojects {
 	}
 }
 
+bootJar {
+	enabled = false
+}
+
+jar {
+	enabled = true
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
