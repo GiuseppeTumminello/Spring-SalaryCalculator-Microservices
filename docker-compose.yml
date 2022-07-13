@@ -72,7 +72,7 @@ services:
       discovery-server:
         condition: service_started
     environment:
-      - SPRING.BOOT.ADMIN.UI.PUBLIC-URL=http://api-gateway:8080/monitoring/microservices/
+      - SPRING.BOOT.ADMIN.UI.PUBLIC-URL=http://${HOST_IP}:8080/monitoring/microservices/
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discovery-server:8761/eureka
 
   sickness-zus:
