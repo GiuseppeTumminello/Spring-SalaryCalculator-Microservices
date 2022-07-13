@@ -470,7 +470,10 @@ Swagger it is available via the following endpoints:
 
     * Go to the folder: Spring-SalaryCalculator-Microservices
     * Create a jar file for each microservice by running "gradle build" or "gradle bootJar"
+    * Update the .env file with your docker machine ip, the ip can be retrieved by running "docker-machine ip" 
     * execute: docker-compose -f docker-compose.yml up
+
+
 
 # Related Git Repositories
 
